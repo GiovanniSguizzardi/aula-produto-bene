@@ -11,7 +11,6 @@ public class ProdutoRepository {
 
     private static List<Produto> produtos;
 
-
     static {
 
         Produto celular = new Produto( 1L, "Iphone", "14 PRO MAX", BigDecimal.valueOf( 14999.99 ) );
@@ -48,4 +47,10 @@ public class ProdutoRepository {
         return retorno;
     }
 
+    public static Produto persist(Produto p) {
+        p.setId(produtos.size() + 1L);
+        produtos.add(p);
+        return p;
+
+    }
 }
